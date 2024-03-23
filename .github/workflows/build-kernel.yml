@@ -27,9 +27,6 @@ jobs:
       - name: Pull kernel source
         run: |
           git clone --depth=1 ${{ env.KERNEL_SOURCE }} -b ${{ env.KERNEL_SOURCE_BRANCH }} kernel-source
-          cd kernel-source
-         curl -kLSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s main  
-         git apply KernelSU-hook.patch
       - name: Build kernel
         run: |
           export KBUILD_BUILD_USER="MiDoNaSR"
